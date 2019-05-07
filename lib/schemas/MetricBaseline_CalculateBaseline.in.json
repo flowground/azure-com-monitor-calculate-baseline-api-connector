@@ -1,0 +1,49 @@
+{
+    "type": "object",
+    "properties": {
+        "resourceUri": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "The time series info needed for calculating the baseline.",
+            "properties": {
+                "sensitivities": {
+                    "description": "The list of sensitivities for calculating the baseline.",
+                    "items": {
+                        "description": "The requested sensitivity for calculating the baseline.",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "timestamps": {
+                    "description": "The array of timestamps of the baselines.",
+                    "items": {
+                        "description": "The timestamp for the baseline value in ISO 8601 format.",
+                        "format": "date-time",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "values": {
+                    "description": "The metric values to calculate the baseline.",
+                    "items": {
+                        "description": "A single metric value.",
+                        "format": "double",
+                        "type": "number"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "sensitivities",
+                "values"
+            ],
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}
